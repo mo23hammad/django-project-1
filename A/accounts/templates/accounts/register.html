@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+<html lang="en">
+
+
+{% block content %}
+    
+
+    
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <h2>Register User</h2>
+</head>
+<body>
+    <form action="" method="post" class="col-md-6" novalidate>
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" value="Register">
+    </form>
+    
+</body>
+{% endblock content %}
+</html>

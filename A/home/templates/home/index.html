@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<html lang="en">
+
+<head>
+    <form action="" method="get">
+        {{form.as_p}}
+        <input type="submit" value="search">
+    </form>
+</head>
+<div class="card">
+    {%for post in posts%}
+    <a href="{{ post.get_absolute_url }}" class="card-body">{{post.body|truncatewords:1 }}</a>
+    <br>
+    {% endfor %}
+</div>
+{% endblock content %}
+</html>

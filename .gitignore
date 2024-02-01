@@ -28,6 +28,7 @@ media
 build/
 develop-eggs/
 dist/
+s-env/
 downloads/
 eggs/
 .eggs/

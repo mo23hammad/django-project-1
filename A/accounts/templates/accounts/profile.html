@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+
+{% if request.user.id == user.id %}
+    <a href="{% url 'home:create'  %}" class="btn btn-success">Create</a>
+    <a href="{% url 'accounts:edit_profile' %}" class="btn btn-primary">EditProfile</a>
+{% endif %}
+{% if request.user.id != user.id %}
+    {% if is_following %}
+    <a href="{% url 'accounts:unfollow' user.id  %}" class="btn btn-danger">Unfollow</a>
+    {% else %}
+    <a href="{% url 'accounts:follow' user.id  %}" class="btn btn-info">Follow</a>
+    {% endif %}
+
+
+{% endif %}
+    
+
+<html lang="en">
+<head>
+    <h2 class="text-center">{{user.username}}</h2>
+</head>
+<body>
+    {% for post in posts %}
+   <a href="{{ post.get_absolute_url }}"> {{post.body|truncatewords:3 }}</a>
+   <br>
+    {% endfor %}
+</body>
+</html>
+    
+{% endblock content %}
+    
